@@ -1,55 +1,44 @@
 /* Global Variables */
 const apiBase = 'api.openweathermap.org/data/2.5/weather?';
-const apiKey = '2f99093600097a9f026db4be38c89470'
-const zipInp = document.querySelector('#zip');
-const textArea = document.querySelector('#feelings');
-const generateBtn = document.querySelector('#generate');
-const dataContainer = document.querySelector('#entryHolder');
+const apiKey = '2f99093600097a9f026db4be38c89470';
+const cityInp = document.querySelector('#city');
+const getTempBtn = document.querySelector('#get-temp');
+const locationHolder = document.querySelector('#location-holder');
 const dateHolder = document.querySelector('#date-holder');
 const tempHolder = document.querySelector('#temp-holder');
-const feelHolder = document.querySelector('#feel-holder');
+
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`;
+let date = new Date();
+let currentDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
 const getTemp = async () => {
-    let apiUrl = `https://${apiBase}zip=${zipInp.value}&appid=${apiKey}`;
+    let apiUrl = `https://${apiBase}q=${cityInp.value}&appid=${apiKey}`;
     return fetch(apiUrl)
-    .then(res => res.json())
-    .then(data => data.main.temp)
-    .then(kTemp => kTemp -  273.15)
-    .then(ctemp => Math.floor(ctemp))
-}
-
-const postData = async (temp) => {
-    const data = {
-        date: newDate,
-        temp: temp,
-        feel: textArea.value
-    }
-    return fetch('/temp', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-    })
-}
-
-const updateUI = async () => {
-    return fetch('/temp')
         .then(res => res.json())
-        .then(data => {
-            dataContainer.style.visibility = 'visible'
-            dateHolder.innerHTML = `Date: <span>${data.date}</span>`;
-            tempHolder.innerHTML = `Temperature: <span>${data.temp}°C</span>`;
-            feelHolder.innerHTML = `Feelings: <span>${data.feel}</span>`;
-        })
+        .then(data => Object.assign({
+            temp: Math.floor(data.main.temp - 273.15), 
+            location: `${data.name}, ${data.sys.country}`
+        }))
+}
+
+const updateUI = (temp, location) => {
+    locationHolder.innerHTML = `Location: <span>${location}</span>`;
+    dateHolder.innerHTML = `Date: <span>${currentDate}</span>`;
+    tempHolder.innerHTML = `Temperature: <span>${temp}°C</span>`;
 }
 
 const processHandler = () => {
     getTemp()
-    .then(temp => postData(temp))
-    .then(() => updateUI())
+        .then(data => {
+            console.log(data.temp);
+            updateUI(data.temp, data.location);
+        })
 }
 
-generateBtn.addEventListener('click', processHandler);
+getTempBtn.addEventListener('click', processHandler);
+
+document.addEventListener('keypress', (e) => {
+    if (e.key == 'Enter' && cityInp.value.length > 0)
+        processHandler();
+});

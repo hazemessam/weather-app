@@ -2,27 +2,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Weather Journal</title>
+	<title>Weather</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<div class="overlay"></div>
 	<div id = "app">
-		<h1 class="headline">Weather Journal App</h1>
+		<h1 class="headline">Weather App</h1>
 		<hr>
-		<input type="text" id="zip" placeholder="Enter zip code here">
-		<div class ="holder feel">
-			<textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-			<br>
-			<button id="generate" type = "submit"> Generate </button>
-		</div>
+		<input type="text" id="city" placeholder="Enter city name">
+		<button id="get-temp" type = "submit"> Temp </button>
 		<hr>
-		<div class ="holder entry">
-			<div class = "title">Most Recent Entry</div>
-			<div id = "entryHolder">
-				<div id = "date-holder"></div> 
-				<div id = "temp-holder"></div>
-				<div id = "feel-holder"></div>
-			</div>
+		<div class="data-holder">
+			<div class="holder" id = "location-holder"></div>
+			<div class="holder" id = "date-holder"></div>
+			<div class="holder" id = "temp-holder"></div>
 		</div>
 	</div>
 	<script src="app.js" type="text/javascript"></script>

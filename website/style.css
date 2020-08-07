@@ -1,12 +1,25 @@
+:root {
+    --main-color: dodgerblue;
+}
+
 ::placeholder {
-    color: dodgerblue;
+    color: var(--main-color);
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color: dodgerblue;
-    color: dodgerblue;
+    background-image: url('./img/bg.png');
+    color: var(--main-color);
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
 }
 
 #app {
@@ -19,51 +32,54 @@ body {
     width: 60%;
     padding: 10px 0;
     transition: 1s;
-}
-
-label {
-    display: block;
+    z-index: 2;
 }
 
 hr {
-    width: 100%;
-    border: 1px solid dodgerblue;
+    border: 1px solid var(--main-color);
 }
-input, textarea, button {
+
+input{
     background-color: transparent;
-    color: dodgerblue;
-    border: 2px solid dodgerblue;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
     border-radius: 8px;
     padding: 7px;
     margin: 7px auto;
     outline: none;
 }
 
-h1.headline {
-    color: dodgerblue;
-}
-
-button#generate {
+button#get-temp {
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+    color: #fff;
+    border-radius: 8px;
+    padding: 7px;
+    margin: 7px auto;
+    outline: none;
     cursor: pointer;
     transition: .4s;
 }
 
-button#generate:hover {
-    background-color: dodgerblue;
-    color: #fff;
+button#get-temp:hover {
+    background-color: #1e90ffc9;
+    border-color: #1e90ffc9;
 }
 
-#entryHolder {
-    display: inline-block;
+.data-holder {
     width: fit-content;
-    border: 2px solid dodgerblue;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 10px;
-    visibility: hidden;
+    margin: auto;
+    text-align: left;
 }
 
-#entryHolder span {
-    color: #FBDE44FF;
+.holder {
+    font-size: 13pt;
+}
+
+.holder span {
     font-weight: bold;
+}
+
+#temp-holder span {
+    color: #FBDE44FF;
 }
