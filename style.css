@@ -1,6 +1,4 @@
-:root {
-    --main-color: dodgerblue;
-}
+:root {--main-color: dodgerblue}
 
 ::placeholder {
     color: var(--main-color);
@@ -11,7 +9,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-image: url('./img/bg.min.png');
-    background-size: cover;
+    /* background-size: cover; */
     width: 100vw;
     height: 100vh;
     padding: 0;
@@ -37,49 +35,42 @@ body {
     border-radius: 8px;
     width: fit-content;
     padding: 10px 30px 15px;
-    transition: 1s;
-    z-index: 2;
+    /* z-index: 2; */
     border-bottom: 2px solid var(--main-color);
     box-shadow: 0 0 10px #aaa;
 }
 
-.headline {
-    user-select: none;
-}
+.headline {user-select: none}
 
 hr {
     border: 1px solid #aaa;
     border-top: none;
 }
 
-input{
-    background-color: transparent;
-    color: var(--main-color);
-    border: 1px solid var(--main-color);
+input, button#get-temp {
     border-radius: 6px;
     padding: 10px 12px;
     margin: 7px auto;
-    outline: none;
     font-size: 12pt;
+    outline: none;
+}
+
+input{
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
 }
 
 button#get-temp {
     background-color: var(--main-color);
     border: 1px solid var(--main-color);
-    border: none;
     color: #fff;
-    border-radius: 6px;
-    padding: 10px 12px;
-    margin: 7px auto;
-    outline: none;
     cursor: pointer;
     transition: .4s;
-    font-size: 12pt;
 }
 
 button#get-temp:hover {
     background-color: #1e90ffc9;
-    border-color: #1e90ffc9;
+    border: 1px solid #1e90ffc9;
 }
 
 .output-holder {
@@ -88,13 +79,9 @@ button#get-temp:hover {
     text-align: left;
 }
 
-.holder {
-    font-size: 13pt;
-}
+.holder {font-size: 13pt}
 
-.holder span {
-    font-weight: bold;
-}
+.holder span {font-weight: bold}
 
 #temp-holder span {
     color: #FBDE44FF;
@@ -109,6 +96,4 @@ footer {
     padding: 10px 0;
 }
 
-footer a {
-    color: var(--main-color);
-}
+footer a {color: var(--main-color)}
