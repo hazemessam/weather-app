@@ -3,6 +3,7 @@ const apiBase = 'api.openweathermap.org/data/2.5/weather?';
 const apiKey = '2f99093600097a9f026db4be38c89470';
 const cityInp = document.querySelector('#city');
 const getTempBtn = document.querySelector('#get-temp');
+const outputHolder = document.querySelector('.output-holder');
 const locationHolder = document.querySelector('#location-holder');
 const dateHolder = document.querySelector('#date-holder');
 const tempHolder = document.querySelector('#temp-holder');
@@ -10,7 +11,7 @@ const tempHolder = document.querySelector('#temp-holder');
 
 // Create a new date instance dynamically with JS
 let date = new Date();
-let currentDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+let currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
 const getTemp = async () => {
     let apiUrl = `https://${apiBase}q=${cityInp.value}&appid=${apiKey}`;
@@ -23,6 +24,11 @@ const getTemp = async () => {
 }
 
 const updateUI = (temp, location) => {
+    const hrElms = document.querySelectorAll('hr');
+    if(hrElms.length < 2) {
+        const hrElm = document.createElement('hr');
+        outputHolder.insertAdjacentElement("beforebegin", hrElm);
+    }
     locationHolder.innerHTML = `Location: <span>${location}</span>`;
     dateHolder.innerHTML = `Date: <span>${currentDate}</span>`;
     tempHolder.innerHTML = `Temperature: <span>${temp}°C</span>`;

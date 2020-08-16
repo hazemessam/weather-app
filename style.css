@@ -4,12 +4,13 @@
 
 ::placeholder {
     color: var(--main-color);
+    font-size: 12pt;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-image: url('./img/bg.png');
+    background-image: url('./img/bg.min.png');
     color: var(--main-color);
 }
 
@@ -19,7 +20,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, .7);
+    /* background-color: rgba(0, 0, 0, .7); */
+    background-color: rgba(255, 255, 255, .8);
 }
 
 #app {
@@ -29,37 +31,43 @@ body {
     transform: translate(-50%, -50%);
     background-color: #fff;
     border-radius: 8px;
-    /* width: 60%; */
     width: fit-content;
     padding: 10px 30px 15px;
     transition: 1s;
     z-index: 2;
+    border-bottom: 2px solid var(--main-color);
+    box-shadow: 0 0 10px #aaa;
 }
 
 hr {
-    border: 1px solid var(--main-color);
+    /* border: 1px solid var(--main-color); */
+    border: 1px solid #aaa;
+    border-top: none;
 }
 
 input{
     background-color: transparent;
     color: var(--main-color);
-    border: 2px solid var(--main-color);
-    border-radius: 8px;
-    padding: 7px;
+    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    padding: 10px 12px;
     margin: 7px auto;
     outline: none;
+    font-size: 12pt;
 }
 
 button#get-temp {
     background-color: var(--main-color);
-    border: 2px solid var(--main-color);
+    border: 1px solid var(--main-color);
+    border: none;
     color: #fff;
-    border-radius: 8px;
-    padding: 7px;
+    border-radius: 6px;
+    padding: 10px 12px;
     margin: 7px auto;
     outline: none;
     cursor: pointer;
     transition: .4s;
+    font-size: 12pt;
 }
 
 button#get-temp:hover {
@@ -67,7 +75,7 @@ button#get-temp:hover {
     border-color: #1e90ffc9;
 }
 
-.data-holder {
+.output-holder {
     width: fit-content;
     margin: auto;
     text-align: left;
