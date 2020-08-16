@@ -11,6 +11,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-image: url('./img/bg.min.png');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
     color: var(--main-color);
 }
 
@@ -91,4 +96,17 @@ button#get-temp:hover {
 
 #temp-holder span {
     color: #FBDE44FF;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer a {
+    color: var(--main-color);
 }
