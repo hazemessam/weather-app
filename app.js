@@ -1,5 +1,5 @@
 /* Global Variables */
-const apiBase = 'api.openweathermap.org/data/2.5/weather?';
+const apiEndPoint = 'api.openweathermap.org/data/2.5/weather?';
 const apiKey = '2f99093600097a9f026db4be38c89470';
 const cityInp = document.querySelector('#city');
 const getTempBtn = document.querySelector('#get-temp');
@@ -14,7 +14,7 @@ let date = new Date();
 let currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
 const getTemp = async () => {
-    let apiUrl = `https://${apiBase}q=${cityInp.value}&appid=${apiKey}`;
+    let apiUrl = `https://${apiEndPoint}q=${cityInp.value}&appid=${apiKey}`;
     return fetch(apiUrl)
         .then(res => res.json())
         .then(data => Object.assign({
