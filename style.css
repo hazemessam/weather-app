@@ -82,10 +82,6 @@ button#get-temp:hover {
 
 .holder span {font-weight: bold}
 
-#temp-holder span {
-    color: #FBDE44FF;
-}
-
 footer {
     position: absolute;
     left: 0;

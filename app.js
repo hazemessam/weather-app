@@ -13,6 +13,7 @@ const tempHolder = document.querySelector('#temp-holder');
 let date = new Date();
 let currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
+// Fetch the temp from the API
 const getTemp = async () => {
     let apiUrl = `https://${apiEndPoint}q=${cityInp.value}&appid=${apiKey}`;
     return fetch(apiUrl)
@@ -23,6 +24,7 @@ const getTemp = async () => {
         }))
 }
 
+// Update the UI
 const updateUI = (temp, location) => {
     const hrElms = document.querySelectorAll('hr');
     if(hrElms.length < 2) {
