@@ -72,6 +72,13 @@ button#get-temp:hover {
     border: 1px solid #1e90ffc9;
 }
 
+.ex {
+    text-align: left;
+    font-size: 9pt;
+    position: relative;
+    left: 8px;
+}
+
 .output-holder {
     width: fit-content;
     margin: auto;

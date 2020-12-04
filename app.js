@@ -14,7 +14,7 @@ let date = new Date();
 let currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
 // Fetch the temp from the API
-const getTemp = async () => {
+const getTemp = () => {
     let apiUrl = `https://${apiEndPoint}q=${cityInp.value}&appid=${apiKey}`;
     return fetch(apiUrl)
         .then(res => res.json())
